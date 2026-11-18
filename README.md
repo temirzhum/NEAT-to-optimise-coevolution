@@ -20,11 +20,11 @@ Run the main file, `neat_proj.py`, using your IDE.
 
 # How It Works
 
-Braitenberg Vehicles
 Each agent is equipped with sensors that react to light sources, along with two wheels that dictate its movement. Sensor inputs are fed into a neural network, which calculates the rotational speed of the left and right wheels.
 
 During the simulation, the position and orientation of the agents are updated in discrete time steps.
-The `neat-python` library is used to evolve the neural network controllers. The NEAT algorithm allows for the modification of network weights and structure through mutation and crossover; the process begins with relatively simple networks, which increase in complexity as evolution progresses.
+
+The neat-python library is used to evolve the neural network controllers. The NEAT algorithm allows for the modification of network weights and structure through mutation and crossover; the process begins with relatively simple networks, which increase in complexity as evolution progresses.
 
 # Coevolution
 
