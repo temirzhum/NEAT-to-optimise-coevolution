@@ -1,6 +1,6 @@
 # Using NEAT to optimise parameters for coevolution game with Braitenberg vehicles
 
-This project explores the coevolution of "hunters" and "runners"—autonomous agents controlled by neural networks that evolve using the NeuroEvolution of Augmenting Topologies (NEAT) algorithm.
+This project explores the coevolution of "hunters" and "runners" - autonomous agents controlled by neural networks that evolve using the NeuroEvolution of Augmenting Topologies (NEAT) algorithm.
 The simulation allows for the study of how competing groups of autonomous agents develop adaptive behaviors through the process of evolution.
 Hunters aim to capture runners, while runners strive to escape by reaching a target zone.
 
