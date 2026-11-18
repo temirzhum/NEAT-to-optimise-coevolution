@@ -1,55 +1,52 @@
 # Using NEAT to optimise parameters for coevolution game with Braitenberg vehicles
 
-В данном проекте исследуется коэволюция «охотников» и «бегунов» - автономных агентов, управляемых нейронными сетями, которые развиваются с помощью алгоритм расширяющихся топологий NEAT.
-Симуляция позволяет изучить, как конкурирующие группы автономных агентов вырабатывают адаптивное поведение в процессе эволюции. 
-Охотники стремятся поймать бегунов, а бегуны — спастись, добравшись до целевой зоны.
+This project explores the coevolution of "hunters" and "runners"—autonomous agents controlled by neural networks that evolve using the NeuroEvolution of Augmenting Topologies (NEAT) algorithm.
+The simulation allows for the study of how competing groups of autonomous agents develop adaptive behaviors through the process of evolution.
+Hunters aim to capture runners, while runners strive to escape by reaching a target zone.
 
-Среда Sandbox API, используемая в данном проекте, была предоставлена профессором Университета Сассекса Крисом Джонсоном. 
+The Sandbox API environment used in this project was provided by Professor Chris Johnson of the University of Sussex.
 
-# Требования
+# Requirements
 
 1. Python 3
 2. numpy
 3. matplotlib
-4. neat-python 
+4. neat-python
 5. PyYAML
 
-# Запуск 
+# Execution
 
-Запустите основной файл neat_proj.py используя IDE.
+Run the main file, `neat_proj.py`, using your IDE.
 
-# Принцип работы
+# How It Works
 
-Транспортные средства Брайтенберга
-Каждый агент оснащен датчиками, реагирующими на источники света, и двумя колесами, определяющими его движение. Показания датчиков поступают в нейронную сеть, которая вычисляет скорость вращения левого и правого колес.
+Braitenberg Vehicles
+Each agent is equipped with sensors that react to light sources, along with two wheels that dictate its movement. Sensor inputs are fed into a neural network, which calculates the rotational speed of the left and right wheels.
 
-В ходе симуляции положение и ориентация агентов обновляются с дискретным шагом по времени.
-Для эволюции нейросетевых контроллеров используется библиотека `neat-python`. Алгоритм NEAT позволяет изменять веса и структуру сети посредством мутаций и скрещивания: процесс начинается с относительно простых сетей, сложность которых возрастает по мере эволюции.
+During the simulation, the position and orientation of the agents are updated in discrete time steps.
+The `neat-python` library is used to evolve the neural network controllers. The NEAT algorithm allows for the modification of network weights and structure through mutation and crossover; the process begins with relatively simple networks, which increase in complexity as evolution progresses.
 
+# Coevolution
 
-# Коэволюция
+The agents are divided into two groups:
+- Hunters: attempt to capture the runners.
+- Runners: attempt to evade the hunters and reach the target zone.
+The fitness of each group depends on its effectiveness in its interaction with the opposing group. This creates evolutionary pressure, compelling both groups to adapt to one another.
 
-Агенты разделены на две группы:
-- Охотники: пытаются поймать бегунов.
-- Бегуны: пытаются уйти от охотников и достичь целевой зоны.
-Приспособленность (fitness) каждой группы зависит от ее эффективности в противостоянии с другой группой. Это создает эволюционное давление, заставляющее обе группы адаптироваться друг к другу.
+# Experimental Results
 
+In experiments conducted without the additional task of collecting light signals, the agents developed distinct behavioral patterns.
 
+The "hunters" evolved movement strategies that included circular trajectories and systematic "sweeping" of the space. The "runners" developed patterns characterized by chaotic, evasive, or directed movement.
 
-# Результаты экспериментов
+The results demonstrated that there is no universal strategy equally effective against every type of opponent. For instance, some hunters successfully intercepted certain runners but encountered difficulties when those runners moved along the arena walls. This points to the existence of cyclical dominance: the strengths of a given strategy against one opponent may become vulnerabilities when facing another.
 
-В ходе экспериментов, проводившихся без дополнительной задачи по сбору световых сигналов, у агентов сформировались различные модели поведения.
+In an extended version of the environment—where runners were required to collect green light signals before they could escape—the outcomes were less successful.
+This can be attributed to the small population size, an insufficient number of generations, and the increased complexity of the task, which necessitated balancing multiple objectives.
 
-У «охотников» развились стратегии движения, включающие круговые траектории и «прочесывание» пространства. У «бегунов» — хаотичные, избегающие или направленные модели перемещения.
+# Limitations
 
-Результаты показали, что не существует универсальной стратегии, одинаково эффективной против любого противника. Например, некоторые охотники успешно перехватывали определенных беглецов, но сталкивались с трудностями, если те двигались вдоль стены арены. Это указывает на наличие циклической доминантности: сильные стороны стратегии в противостоянии с одним противником могут стать ее уязвимостями в борьбе с другим.
-
-В расширенном варианте среды, где бегуны перед побегом необходимо было собрать зеленые световые сигналы, результаты оказались менее успешными. 
-Это объясняется ограниченным размером популяции, недостаточным количеством поколений и возросшей сложностью задачи, требующей балансировки между несколькими целями.
-
-# Ограничения
-
-1. Малый размер популяции ограничивал разнообразие сформировавшихся нейронных сетей.
-2. Количество поколений было ограничено временем симуляции.
-3. Дополнительная задача (сбор зеленых сигналов) усложнила выполнение основной цели.
-4. В расширенном эксперименте не удалось добиться стабильно эффективного поведения.
+1. The small population size limited the diversity of the neural networks that emerged.
+2. The number of generations was constrained by the duration of the simulation.
+3. The additional task (collecting green signals) made achieving the primary objective more complex.
+4. In the extended experiment, it was not possible to achieve consistently effective behavior.
