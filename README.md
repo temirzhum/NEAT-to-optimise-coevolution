@@ -1,4 +1,4 @@
-# Using-NEAT-to-optimise-parameters-for-coevolution-game-with-Braitenberg-vehicles
+# Using NEAT to optimise parameters for coevolution game with Braitenberg vehicles
 
 В данном проекте исследуется коэволюция «охотников» и «бегунов» - автономных агентов, управляемых нейронными сетями, которые развиваются с помощью алгоритм расширяющихся топологий NEAT.
 Симуляция позволяет изучить, как конкурирующие группы автономных агентов вырабатывают адаптивное поведение в процессе эволюции. 
